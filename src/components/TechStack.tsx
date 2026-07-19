@@ -11,18 +11,59 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+const techItems = [
+  { name: "C#", color: "#aa42ff" },
+  { name: ".NET Core", color: "#7f40ff" },
+  { name: "Angular", color: "#ff2a5f" },
+  { name: "SQL", color: "#0088ff" },
+  { name: "EF Core", color: "#00ff88" },
+  { name: "Dapper", color: "#ffb700" },
+  { name: "React", color: "#00f0ff" },
+  { name: "TS", color: "#3178c6" },
+  { name: "Git", color: "#ff5500" },
+  { name: "Vercel", color: "#ffffff" },
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
+
+function createTechTexture(name: string, color: string) {
+  const canvas = document.createElement("canvas");
+  canvas.width = 256;
+  canvas.height = 256;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return new THREE.Texture();
+
+  // Clear background with radial gradient
+  const gradient = ctx.createRadialGradient(128, 128, 10, 128, 128, 120);
+  gradient.addColorStop(0, "#1c0d3a");
+  gradient.addColorStop(1, "#070112");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 256, 256);
+
+  // Glowing ring border
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 10;
+  ctx.shadowColor = color;
+  ctx.shadowBlur = 20;
+  ctx.beginPath();
+  ctx.arc(128, 128, 110, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // White text with shadow glow
+  ctx.shadowBlur = 12;
+  ctx.fillStyle = "#ffffff";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  
+  if (name.length > 5) {
+    ctx.font = "bold 30px Geist, Outfit, sans-serif";
+  } else {
+    ctx.font = "bold 46px Geist, Outfit, sans-serif";
+  }
+  ctx.fillText(name, 128, 128);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  return texture;
+}
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
@@ -152,18 +193,19 @@ const TechStack = () => {
     };
   }, []);
   const materials = useMemo(() => {
-    return textures.map(
-      (texture) =>
-        new THREE.MeshPhysicalMaterial({
-          map: texture,
-          emissive: "#ffffff",
-          emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
-        })
-    );
+    return techItems.map((tech) => {
+      const texture = createTechTexture(tech.name, tech.color);
+      return new THREE.MeshPhysicalMaterial({
+        map: texture,
+        emissive: new THREE.Color(tech.color),
+        emissiveMap: texture,
+        emissiveIntensity: 0.25,
+        metalness: 0.3,
+        roughness: 0.4,
+        clearcoat: 0.4,
+        clearcoatRoughness: 0.1,
+      });
+    });
   }, []);
 
   return (

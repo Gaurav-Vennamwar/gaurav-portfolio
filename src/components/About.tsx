@@ -6,9 +6,11 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          I'm <strong>Gaurav Vennamwar</strong>, a Full Stack .NET Engineer dedicated to building 
+          secure, production-ready, and highly performant web applications. With expertise spanning 
+          <strong> ASP.NET Core, Angular, Azure SQL, and cloud technologies</strong>, I focus on engineering 
+          clean backend APIs, architecting optimized database solutions, and designing responsive, interactive frontends. 
+          I love transforming complex logic into robust, user-friendly digital experiences.
         </p>
       </div>
     </div>
@@ -16,3 +18,4 @@ const About = () => {
 };
 
 export default About;
+

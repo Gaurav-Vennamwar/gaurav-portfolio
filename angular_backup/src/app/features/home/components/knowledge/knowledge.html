@@ -1,0 +1,80 @@
+<section class="knowledge" id="knowledge">
+
+  <div class="knowledge-header">
+
+    <span class="section-tag">
+      Knowledge Hub
+    </span>
+
+    <h2>
+      Always Learning.
+      <span>Always Sharing.</span>
+    </h2>
+
+    <p>
+      Every article below is fetched live from my Secure Knowledge
+      Management System. Whenever I publish a new article, this portfolio
+      updates automatically.
+    </p>
+
+  </div>
+
+  <div class="knowledge-grid">
+
+   <article class="blog-card" *ngFor="let blog of blogs">
+
+  <img
+    class="blog-image"
+    [src]="blog.FeaturedImageUrl"
+    [alt]="blog.Tittle">
+
+  <div class="blog-content">
+
+   <div class="categories" *ngIf="blog.Categories && blog.Categories.length > 0">
+      <span *ngFor="let category of blog.Categories">
+
+        {{ category.Name }}
+
+      </span>
+
+    </div>
+
+    <h3>
+
+      {{ blog.Tittle }}
+
+    </h3>
+
+    <p>
+
+      {{ blog.ShortDescription }}
+
+    </p>
+
+    <div class="blog-footer">
+
+      <div>
+
+        <strong>{{ blog.Author }}</strong><br>
+
+        <small>{{ blog.PublishedDate | date:'MMM yyyy' }}</small>
+
+      </div>
+
+      <a
+        [href]="'https://secure-knowledge-management-systemv-ten.vercel.app/blog/' + blog.UrlHandle"
+        target="_blank">
+
+        Read →
+
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+  </div>
+
+</section>

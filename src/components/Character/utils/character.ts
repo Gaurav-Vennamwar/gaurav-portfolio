@@ -34,6 +34,43 @@ const setCharacter = (
                 child.castShadow = true;
                 child.receiveShadow = true;
                 mesh.frustumCulled = true;
+
+                // Programmatically personalize character styling to match Gaurav Vennamwar
+                if (mesh.material) {
+                  const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+                  mats.forEach((mat: any) => {
+                    // 1. Skin Tone (warm Indian/brown skin tone)
+                    if (mat.name === "Material.025" || 
+                        ["Face.002", "Neck", "Hand", "Ear.001"].includes(mesh.name)) {
+                      mat.color.setHex(0x91604f);
+                      mat.roughness = 0.6;
+                    }
+                    
+                    // 2. Hair & Eyebrows (deep black)
+                    if (mat.name === "Material.014" || 
+                        ["hair", "Eyebrow"].includes(mesh.name)) {
+                      mat.color.setHex(0x0a0a0a);
+                    }
+                    
+                    // 3. Shirt (white polo style)
+                    if (mesh.name === "BODY.SHIRT") {
+                      mat.color.setHex(0xf8f9fa);
+                      mat.roughness = 0.8;
+                    }
+                    
+                    // 4. Pants (cream/off-white)
+                    if (mesh.name === "Pant") {
+                      mat.color.setHex(0xeae5db);
+                      mat.roughness = 0.95;
+                    }
+                    
+                    // 5. Shoes (white sneakers)
+                    if (mesh.name === "Shoe") {
+                      mat.color.setHex(0xffffff);
+                      mat.roughness = 0.5;
+                    }
+                  });
+                }
               }
             });
             resolve(gltf);

@@ -6,7 +6,7 @@ import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
+export let smoother: ScrollSmoother | null = null;
 
 const Navbar = () => {
   useEffect(() => {
@@ -20,38 +20,39 @@ const Navbar = () => {
       ignoreMobileResize: true,
     });
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+    smoother?.scrollTop(0);
+    smoother?.paused(true);
 
-    let links = document.querySelectorAll(".header ul a");
+    const links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
+      const element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
         if (window.innerWidth > 1024) {
           e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          const elem = e.currentTarget as HTMLAnchorElement;
+          const section = elem.getAttribute("data-href");
+          smoother?.scrollTo(section, true, "top top");
         }
       });
     });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+   const handleResize = () => {
+  ScrollSmoother.refresh(true);
+};
+
+window.addEventListener("resize", handleResize);
+
+return () => {
+  window.removeEventListener("resize", handleResize);
+  smoother?.kill();
+};
   }, []);
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          Logo
+          Gaurav
         </a>
-        <a
-          href="mailto:example@mail.com"
-          className="navbar-connect"
-          data-cursor="disable"
-        >
-          example@mail.com
-        </a>
+       
         <ul>
           <li>
             <a data-href="#about" href="#about">
@@ -59,8 +60,18 @@ const Navbar = () => {
             </a>
           </li>
           <li>
+            <a data-href="#experience" href="#experience">
+              <HoverLinks text="MILESTONES" />
+            </a>
+          </li>
+          <li>
             <a data-href="#work" href="#work">
               <HoverLinks text="WORK" />
+            </a>
+          </li>
+          <li>
+            <a data-href="#knowledge" href="#knowledge">
+              <HoverLinks text="KNOWLEDGE" />
             </a>
           </li>
           <li>
@@ -70,6 +81,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+
 
       <div className="landing-circle1"></div>
       <div className="landing-circle2"></div>
