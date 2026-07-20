@@ -70,7 +70,7 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a className="resume-button" href="/resume.pdf" target="_blank" rel="noreferrer">
+      <a className="resume-button" href="/public/resume/Gaurav_Vennamwar_Resume.pdf" target="_blank" rel="noreferrer">
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
