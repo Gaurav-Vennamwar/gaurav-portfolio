@@ -96,8 +96,8 @@ body {
   position: relative;
   height: var(--vh);
   margin: auto;
-  /* Leave room for the project overview and technology list above. */
-  margin-top: 150px;
+  /* Keep the full canvas, but start it well below the taller project cards. */
+  margin-top: 260px;
   margin-bottom: -100px;
 }
 
