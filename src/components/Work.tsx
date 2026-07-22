@@ -111,10 +111,12 @@ const Work = () => {
                     <p>{project.category}</p>
                   </div>
                 </div>
-                <h4>Tools & Technologies</h4>
-                <p>{project.tools}</p>
                 <h4>Project Overview</h4>
                 <p>{project.description}</p>
+                <div className="project-technologies">
+                  <h4>Tools & Technologies</h4>
+                  <p>{project.tools}</p>
+                </div>
               </div>
               <WorkImage
                 image={project.image}

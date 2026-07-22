@@ -96,7 +96,8 @@ body {
   position: relative;
   height: var(--vh);
   margin: auto;
-  margin-top: 50px;
+  /* Leave room for the project overview and technology list above. */
+  margin-top: 150px;
   margin-bottom: -100px;
 }
 

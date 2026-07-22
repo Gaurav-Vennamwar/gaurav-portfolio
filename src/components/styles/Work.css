@@ -85,6 +85,9 @@
 .work-info > p {
   width: 90%;
 }
+.project-technologies {
+  margin-top: 22px;
+}
 .work-image {
   display: flex;
   width: 100%;
@@ -137,6 +140,9 @@
     padding-top: 40px;
     padding-bottom: 40px;
   }
+  .project-technologies {
+    margin-top: 14px;
+  }
   .work-section h2 {
     font-size: 60px;
     margin-bottom: 30px;
@@ -186,6 +192,9 @@
   }
   .work-box {
     gap: 20px;
+  }
+  .project-technologies {
+    margin-top: 10px;
   }
 }
 /* @media only screen and (max-width: 900px) {

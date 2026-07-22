@@ -40,7 +40,7 @@ const Contact = () => {
             <h2>
               Designed & Developed by <br />
               <a 
-                href="https://github.com/MoncyDev/Portfolio-Website" 
+                href="#" 
                 target="_blank" 
                 rel="noreferrer" 
                 style={{ color: "inherit", textDecoration: "underline" }}
