@@ -12,26 +12,48 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const projects = [
   {
     num: "01",
-    name: "SKMS Version 2",
-    category: "Full Stack Knowledge Platform",
-    tools: "ASP.NET Core, Angular, Azure SQL, EF Core, JWT Auth & Refresh Tokens, Markdown Editor",
-    image: "/images/skmsv2-home.png",
-    link: "https://secure-knowledge-management-systemv-ten.vercel.app/"
+    name: "Ascendly AI",
+    category: "AI-Powered Career Platform",
+    description:
+      "A modern SaaS platform that helps software engineers optimize resumes, improve ATS compatibility, practice AI-powered mock interviews, follow personalized learning roadmaps, and track interview readiness through an intelligent career dashboard.",
+
+    tools:
+      "Angular 21 • ASP.NET Core Web API • PostgreSQL • JWT Authentication • Google Gemini AI • Entity Framework Core • Render • Vercel • Supabase",
+
+    image: "/images/ascendly-home.png",
+
+    link: "https://ascendly-ai-five.vercel.app/"
   },
+
   {
     num: "02",
-    name: "Ascendly AI",
-    category: "AI Career SaaS (Active Build)",
-    tools: "ATS Optimization, AI Mock Interviews, Resume Intelligence, Personal Learning Roadmaps",
-    image: "/images/ascendly-home.png",
-    link: "#"
+    name: "Secure Knowledge Management System (V2)",
+    category: "Production Knowledge Platform",
+
+    description:
+      "A full-stack knowledge management platform built with enterprise architecture featuring secure authentication, markdown-powered blog management, role-based authorization, image management, syntax highlighting, and a modern SaaS user experience.",
+
+    tools:
+      "Angular • ASP.NET Core • Azure SQL • Entity Framework Core • JWT • Refresh Tokens • Cloudinary • Render • Vercel • Azure Sql",
+
+    image: "/images/skmsv2-home.png",
+
+    link: "https://secure-knowledge-management-systemv-ten.vercel.app/"
   },
+
   {
     num: "03",
-    name: "SKMS Version 1",
-    category: "Full Stack Web Application",
-    tools: "C#, ASP.NET Core, Angular, SQL Server, Dapper ORM, REST APIs, Render Deployment",
+    name: "Secure Knowledge Management System (V1)",
+    category: "Enterprise Blog Platform",
+
+    description:
+      "The first production version of SKMS demonstrating a complete authentication system, CRUD operations, REST APIs, layered architecture, Dapper integration, SQL Server database design, and responsive Angular frontend.",
+
+    tools:
+      "ASP.NET Core • Angular • SQL Server • Dapper • JWT • REST APIs • Render",
+
     image: "/images/skms-home.png",
+
     link: "https://secure-knowledge-management-systemv-ten.vercel.app/"
   }
 ];
